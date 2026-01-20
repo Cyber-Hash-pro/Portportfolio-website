@@ -1,79 +1,241 @@
 @import "tailwindcss";
-/* Global selection style */
-::selection {
-  background: #A9927D;  /* yellow background */
-  color: #000;          /* black text */
-}
 
-/* Agar specific element ka hi change karna ho */
-p::selection {
-  background: #ff0000;  /* red */
-  color: #fff;          /* white text */
-}
-
+/* ============================================
+   DESIGN SYSTEM - CSS Custom Properties
+   ============================================ */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-
+  /* Color Palette */
+  --color-bg-primary: #0A0908;
+  --color-bg-secondary: #121314;
+  --color-bg-card: #1a1b1c;
+  --color-accent: #A9927D;
+  --color-accent-light: #D4C5B5;
+  --color-text-primary: #F5F5F5;
+  --color-text-secondary: #9CA3AF;
+  --color-success: #10B981;
+  --color-border: rgba(255, 255, 255, 0.1);
+  
+  /* Typography */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #0A0908;
-
- 
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
 }
+
+/* ============================================
+   CUSTOM FONTS
+   ============================================ */
 @font-face {
   font-family: font1;
   src: url(../public/font1.woff2);
+  font-display: swap;
+}
+@font-face {
+  font-family: font3;
+  src: url(../public/font3.woff2);
+  font-display: swap;
+}
+@font-face {
+  font-family: font4;
+  src: url(../public/font4.woff2);
+  font-display: swap;
+}
+@font-face {
+  font-family: font5;
+  src: url(../public/font5.woff2);
+  font-display: swap;
+}
+@font-face {
+  font-family: font6;
+  src: url(../public/font6.woff2);
+  font-display: swap;
+}
+@font-face {
+  font-family: font7;
+  src: url(../public/font7.woff2);
+  font-display: swap;
+}
+@font-face {
+  font-family: font8;
+  src: url(../public/font3.woff2);
+  font-display: swap;
+}
+@font-face {
+  font-family: font9;
+  src: url(../public/font3.woff2);
+  font-display: swap;
 }
 
-/* Marquee (continuous, seamless) */
+/* ============================================
+   SELECTION STYLES
+   ============================================ */
+::selection {
+  background: var(--color-accent);
+  color: #000;
+}
+
+p::selection {
+  background: var(--color-accent);
+  color: #000;
+}
+
+/* ============================================
+   GLASSMORPHISM UTILITIES
+   ============================================ */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ============================================
+   GRADIENT TEXT UTILITY
+   ============================================ */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 50%, #fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-accent {
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+  color: #000;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -10px rgba(169, 146, 125, 0.5);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-text-primary);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   CARD HOVER EFFECTS
+   ============================================ */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 40px -10px var(--color-accent);
+}
+
+/* ============================================
+   MARQUEE ANIMATION (Tech Stack)
+   ============================================ */
 .marquee-container {
   overflow: hidden;
-  position: relative; /* required for gradient fades */
+  position: relative;
 }
 
-/* optional edge fades for a nicer look */
 .marquee-container::before,
 .marquee-container::after {
   content: "";
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 64px; /* fade width */
+  width: 80px;
   pointer-events: none;
   z-index: 2;
 }
+
 .marquee-container::before {
   left: 0;
-  background: linear-gradient(to right, rgba(10,9,8,1), rgba(10,9,8,0));
-}
-.marquee-container::after {
-  right: 0;
-  background: linear-gradient(to left, rgba(10,9,8,1), rgba(10,9,8,0));
+  background: linear-gradient(to right, rgba(10, 9, 8, 1), rgba(10, 9, 8, 0));
 }
 
-/* The moving track that holds two identical groups */
+.marquee-container::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(10, 9, 8, 1), rgba(10, 9, 8, 0));
+}
+
 .marquee {
   display: flex;
   align-items: center;
-  gap: 0.25rem; /* matches gap-1 in Tailwind */
+  gap: 0.25rem;
   will-change: transform;
-  animation: marquee-scroll 14s linear infinite;
+  animation: marquee-scroll 20s linear infinite;
 }
 
-/* Content groups; ensure single line so widths add up exactly */
 .marquee .texts {
   display: flex;
-  
   align-items: center;
   gap: 4rem;
   white-space: nowrap;
 }
 
-/* Optional chip styling if spans are plain */
 .marquee .texts span {
   display: inline-flex;
   align-items: center;
-
   border-radius: 9999px;
 }
 
@@ -82,43 +244,71 @@ p::selection {
     transform: translateX(0);
   }
   100% {
-    /* move left by exactly one group's width (two identical groups present) */
     transform: translateX(-50%);
   }
 }
 
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .marquee {
-    animation-duration: 0.001s;
-    animation-iteration-count: 1;
-  }
-}
-@font-face {
-  font-family: font8;
-  src: url(../public/font3.woff2);
-}@font-face {
-  font-family: font9;
-  src: url(../public/font3.woff2);
-}
-@font-face {
-  font-family: font7;
-  src: url(../public/font7.woff2);
-}@font-face {
-  font-family: font6;
-  src: url(../public/font6.woff2);
-}@font-face {
-  font-family: font5;
-  src: url(../public/font5.woff2);
-}@font-face {
-  font-family: font4;
-  src: url(../public/font4.woff2);
-}@font-face {
-  font-family: font3;
-  src: url(../public/font3.woff2);
+/* Pause marquee on hover */
+.marquee-container:hover .marquee {
+  animation-play-state: paused;
 }
 
-/* Animation for popup tooltip card */
+/* ============================================
+   SCROLL ANIMATIONS
+   ============================================ */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children animation */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.stagger-children.visible > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger-children.visible > *:nth-child(2) { transition-delay: 0.2s; }
+.stagger-children.visible > *:nth-child(3) { transition-delay: 0.3s; }
+.stagger-children.visible > *:nth-child(4) { transition-delay: 0.4s; }
+.stagger-children.visible > *:nth-child(5) { transition-delay: 0.5s; }
+.stagger-children.visible > *:nth-child(6) { transition-delay: 0.6s; }
+
+.stagger-children.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-light);
+}
+
+/* ============================================
+   POPUP TOOLTIP ANIMATION
+   ============================================ */
 @keyframes fadeInScale {
   0% {
     opacity: 0;
@@ -127,5 +317,90 @@ p::selection {
   100% {
     opacity: 1;
     transform: scale(1) translateY(0);
+  }
+}
+
+/* ============================================
+   SKILL BAR ANIMATION
+   ============================================ */
+.skill-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+  border-radius: 2px;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-bar-fill.animate {
+  transform: scaleX(1);
+}
+
+/* ============================================
+   TIMELINE STYLES
+   ============================================ */
+.timeline-line {
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-accent) 0%, transparent 100%);
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--color-bg-secondary), 0 0 20px var(--color-accent);
+}
+
+/* ============================================
+   SECTION DIVIDER
+   ============================================ */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  opacity: 0.3;
+}
+
+/* ============================================
+   ACCESSIBILITY - Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .marquee {
+    animation: none;
+  }
+}
+
+/* ============================================
+   RESPONSIVE HELPERS
+   ============================================ */
+.section-padding {
+  padding: 4rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 6rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 8rem 4rem;
   }
 }
