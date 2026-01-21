@@ -36,8 +36,8 @@ const Navabar = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-        ? 'bg-[#0A0908]/80 backdrop-blur-lg shadow-lg'
-        : 'bg-transparent'
+      ? 'glass-dark shadow-2xl py-2'
+      : 'bg-transparent py-4'
       }`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 py-4">
         {/* Logo Section */}
@@ -64,7 +64,7 @@ const Navabar = () => {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9, y: -10 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-12 left-0 w-64 bg-[#A9927D] rounded-xl p-4 shadow-xl z-50"
+                  className="absolute top-12 left-0 w-64 bg-[var(--color-accent)] rounded-xl p-4 shadow-xl z-50"
                 >
                   <div className="space-y-2 text-left">
                     <p className="font-bold text-white">Hello 👋</p>
@@ -93,8 +93,8 @@ const Navabar = () => {
               to={link.path}
               onMouseEnter={() => audioRef.current?.play()}
               className={`relative py-2 transition-colors duration-200 ${isActive(link.path)
-                  ? 'text-[#A9927D]'
-                  : 'text-gray-300 hover:text-white'
+                ? 'text-[#A9927D]'
+                : 'text-gray-300 hover:text-white'
                 }`}
             >
               {link.name}
@@ -102,7 +102,7 @@ const Navabar = () => {
               {isActive(link.path) && (
                 <motion.div
                   layoutId="activeIndicator"
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#A9927D] rounded-full"
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--color-accent)] rounded-full"
                 />
               )}
             </Link>
@@ -153,7 +153,7 @@ const Navabar = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden absolute top-full left-0 right-0 bg-[#0A0908]/95 backdrop-blur-lg border-t border-white/10 overflow-hidden"
+              className="md:hidden absolute top-full left-0 right-0 glass-dark border-t border-[var(--color-border)] overflow-hidden"
             >
               <div className="flex flex-col items-center gap-4 py-6 px-4">
                 {navLinks.map((link, index) => (
@@ -170,8 +170,8 @@ const Navabar = () => {
                         setIsMenuOpen(false);
                       }}
                       className={`text-lg font-medium transition-colors ${isActive(link.path)
-                          ? 'text-[#A9927D]'
-                          : 'text-gray-300 hover:text-white'
+                        ? 'text-[#A9927D]'
+                        : 'text-gray-300 hover:text-white'
                         }`}
                     >
                       {link.name}

@@ -13,7 +13,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0A0908] border-t border-white/5">
+    <footer className="bg-[var(--color-bg-primary)] border-t border-[var(--color-border)]">
       <div className="max-w-7xl mx-auto px-6 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
           {/* Brand Column */}
@@ -40,7 +40,7 @@ const Footer = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="block text-gray-400 hover:text-[#A9927D] transition-colors text-sm"
+                  className="block text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors text-sm"
                 >
                   {link.name}
                 </Link>

@@ -28,11 +28,11 @@ const ProjectCard = ({ project, index }) => {
                 />
 
                 {/* Gradient Overlay on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0908] via-[#0A0908]/60 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-primary)] via-[var(--color-bg-primary)]/60 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
 
                 {/* Featured Badge */}
                 {project.featured && (
-                    <div className="absolute top-4 left-4 px-3 py-1 bg-[#A9927D] rounded-full text-xs font-semibold text-black">
+                    <div className="absolute top-4 left-4 px-3 py-1 bg-[var(--color-accent)] rounded-full text-xs font-semibold text-black shadow-lg">
                         ⭐ Featured
                     </div>
                 )}
@@ -54,7 +54,7 @@ const ProjectCard = ({ project, index }) => {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-12 h-12 bg-[#A9927D] rounded-full flex items-center justify-center hover:bg-[#D4C5B5] transition-colors"
+                        className="w-12 h-12 bg-[var(--color-accent)] rounded-full flex items-center justify-center hover:bg-[var(--color-accent-light)] transition-colors"
                         aria-label="View Live Demo"
                     >
                         <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -66,10 +66,10 @@ const ProjectCard = ({ project, index }) => {
 
             {/* Project Info */}
             <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-100 mb-2 group-hover:text-[#A9927D] transition-colors">
+                <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-2 group-hover:text-[var(--color-accent)] transition-colors">
                     {project.title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+                <p className="text-[var(--color-text-secondary)] text-sm mb-4 line-clamp-2">
                     {project.description}
                 </p>
 
@@ -101,9 +101,9 @@ const ProjectsSection = ({ showAll = false }) => {
         : projectsData.filter(p => p.featured).slice(0, 3);
 
     return (
-        <section id="projects" className="section-padding bg-[#121314] relative overflow-hidden">
+        <section id="projects" className="section-padding bg-[var(--color-bg-secondary)] relative overflow-hidden">
             {/* Background decoration */}
-            <div className="absolute top-1/3 right-0 w-72 h-72 bg-[#A9927D]/5 rounded-full blur-3xl" />
+            <div className="absolute top-1/3 right-0 w-72 h-72 bg-[var(--color-accent)]/5 rounded-full blur-3xl" />
             <div className="absolute bottom-1/3 left-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl" />
 
             <div className="max-w-7xl mx-auto relative z-10">
@@ -115,7 +115,7 @@ const ProjectsSection = ({ showAll = false }) => {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <span className="text-[#A9927D] font-medium tracking-wider uppercase text-sm">
+                    <span className="text-[var(--color-accent)] font-medium tracking-wider uppercase text-sm">
                         My Work
                     </span>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 font-[font9]">

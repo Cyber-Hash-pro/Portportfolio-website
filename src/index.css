@@ -4,23 +4,28 @@
    DESIGN SYSTEM - CSS Custom Properties
    ============================================ */
 :root {
-  /* Color Palette */
+  /* Color Palette - Noir Gold Premium */
   --color-bg-primary: #0A0908;
   --color-bg-secondary: #121314;
-  --color-bg-card: #1a1b1c;
+  --color-bg-card: #1C1D1E;
   --color-accent: #A9927D;
   --color-accent-light: #D4C5B5;
+  --color-accent-dim: rgba(169, 146, 125, 0.1);
   --color-text-primary: #F5F5F5;
   --color-text-secondary: #9CA3AF;
+  --color-text-tertiary: #6B7280;
   --color-success: #10B981;
-  --color-border: rgba(255, 255, 255, 0.1);
-  
+  --color-border: rgba(255, 255, 255, 0.08);
+
   /* Typography */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color-scheme: light dark;
+  --font-heading: 'font9', system-ui, sans-serif;
+  --font-body: 'font1', system-ui, sans-serif;
+
+  font-family: var(--font-body);
+  color-scheme: dark;
   color: var(--color-text-primary);
   background-color: var(--color-bg-primary);
-  
+
   /* Smooth scrolling */
   scroll-behavior: smooth;
 }
@@ -33,36 +38,43 @@
   src: url(../public/font1.woff2);
   font-display: swap;
 }
+
 @font-face {
   font-family: font3;
   src: url(../public/font3.woff2);
   font-display: swap;
 }
+
 @font-face {
   font-family: font4;
   src: url(../public/font4.woff2);
   font-display: swap;
 }
+
 @font-face {
   font-family: font5;
   src: url(../public/font5.woff2);
   font-display: swap;
 }
+
 @font-face {
   font-family: font6;
   src: url(../public/font6.woff2);
   font-display: swap;
 }
+
 @font-face {
   font-family: font7;
   src: url(../public/font7.woff2);
   font-display: swap;
 }
+
 @font-face {
   font-family: font8;
   src: url(../public/font3.woff2);
   font-display: swap;
 }
+
 @font-face {
   font-family: font9;
   src: url(../public/font3.woff2);
@@ -86,24 +98,26 @@ p::selection {
    GLASSMORPHISM UTILITIES
    ============================================ */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .glass-strong {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(20, 20, 22, 0.6);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
 .glass-dark {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(10, 9, 8, 0.6);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* ============================================
@@ -144,7 +158,7 @@ p::selection {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
   transition: left 0.5s ease;
 }
 
@@ -243,6 +257,7 @@ p::selection {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -268,20 +283,37 @@ p::selection {
 }
 
 /* Staggered children animation */
-.stagger-children > * {
+.stagger-children>* {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.5s ease;
 }
 
-.stagger-children.visible > *:nth-child(1) { transition-delay: 0.1s; }
-.stagger-children.visible > *:nth-child(2) { transition-delay: 0.2s; }
-.stagger-children.visible > *:nth-child(3) { transition-delay: 0.3s; }
-.stagger-children.visible > *:nth-child(4) { transition-delay: 0.4s; }
-.stagger-children.visible > *:nth-child(5) { transition-delay: 0.5s; }
-.stagger-children.visible > *:nth-child(6) { transition-delay: 0.6s; }
+.stagger-children.visible>*:nth-child(1) {
+  transition-delay: 0.1s;
+}
 
-.stagger-children.visible > * {
+.stagger-children.visible>*:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.stagger-children.visible>*:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.stagger-children.visible>*:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+.stagger-children.visible>*:nth-child(5) {
+  transition-delay: 0.5s;
+}
+
+.stagger-children.visible>*:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
+.stagger-children.visible>* {
   opacity: 1;
   transform: translateY(0);
 }
@@ -314,6 +346,7 @@ p::selection {
     opacity: 0;
     transform: scale(0.9) translateY(-10px);
   }
+
   100% {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -372,6 +405,7 @@ p::selection {
    ACCESSIBILITY - Reduced Motion
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -380,7 +414,7 @@ p::selection {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  
+
   .marquee {
     animation: none;
   }

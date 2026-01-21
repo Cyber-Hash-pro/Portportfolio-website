@@ -32,7 +32,7 @@ const TimelineItem = ({ item, index, isLast }) => {
                 <div className="w-2/12 flex flex-col items-center">
                     <div className="timeline-dot z-10" />
                     {!isLast && (
-                        <div className="w-0.5 h-32 bg-gradient-to-b from-[#A9927D] to-transparent" />
+                        <div className="w-0.5 h-32 bg-gradient-to-b from-[var(--color-accent)] to-transparent" />
                     )}
                 </div>
 
@@ -79,17 +79,17 @@ const TimelineCard = ({ item }) => {
                     </div>
 
                     <div>
-                        <h3 className="text-lg md:text-xl font-bold text-gray-100 group-hover:text-[#A9927D] transition-colors">
+                        <h3 className="text-lg md:text-xl font-bold text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors">
                             {item.role}
                         </h3>
-                        <p className="text-[#A9927D] font-medium">{item.company}</p>
+                        <p className="text-[var(--color-accent)] font-medium">{item.company}</p>
                     </div>
                 </div>
 
                 {/* Type Badge */}
                 <span className={`px-3 py-1 rounded-full text-xs font-medium ${isWork
-                        ? 'bg-emerald-500/20 text-emerald-400'
-                        : 'bg-indigo-500/20 text-indigo-400'
+                    ? 'bg-emerald-500/20 text-emerald-400'
+                    : 'bg-indigo-500/20 text-indigo-400'
                     }`}>
                     {isWork ? '💼 Work' : '🎓 Education'}
                 </span>
@@ -115,8 +115,8 @@ const TimelineCard = ({ item }) => {
             {/* Description Points */}
             <ul className="space-y-2">
                 {item.description.map((point, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-gray-300 text-sm md:text-base">
-                        <span className="text-[#A9927D] mt-1.5 flex-shrink-0">▸</span>
+                    <li key={idx} className="flex items-start gap-2 text-[var(--color-text-secondary)] text-sm md:text-base">
+                        <span className="text-[var(--color-accent)] mt-1.5 flex-shrink-0">▸</span>
                         <span>{point}</span>
                     </li>
                 ))}
@@ -127,9 +127,9 @@ const TimelineCard = ({ item }) => {
 
 const ExperienceSection = () => {
     return (
-        <section id="experience" className="section-padding bg-[#0A0908] relative overflow-hidden">
+        <section id="experience" className="section-padding bg-[var(--color-bg-primary)] relative overflow-hidden">
             {/* Background decorations */}
-            <div className="absolute top-20 left-10 w-72 h-72 bg-[#A9927D]/5 rounded-full blur-3xl" />
+            <div className="absolute top-20 left-10 w-72 h-72 bg-[var(--color-accent)]/5 rounded-full blur-3xl" />
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl" />
 
             <div className="max-w-6xl mx-auto relative z-10">

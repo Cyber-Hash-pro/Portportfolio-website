@@ -27,9 +27,9 @@ const Hero = () => {
   };
 
   return (
-    <main className="w-full min-h-screen font-[font9] flex flex-col items-center px-4 md:px-6 text-center relative overflow-hidden bg-[#0A0908]">
+    <main className="w-full min-h-screen font-[font9] flex flex-col items-center px-4 md:px-6 text-center relative overflow-hidden bg-[var(--color-bg-primary)]">
       {/* Background gradients */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#A9927D]/10 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[var(--color-accent)]/10 rounded-full blur-3xl p-10" />
       <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-emerald-500/5 rounded-full blur-3xl" />
 
       {/* Main Content */}
@@ -39,7 +39,7 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-6"
+          className="inline-flex items-center gap-2 glass-strong px-4 py-2 rounded-full mb-6 border border-[var(--color-accent)]/20"
         >
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -73,9 +73,9 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
           variants={textVariants}
-          className="text-xl md:text-2xl lg:text-3xl text-gray-400 mt-4 md:mt-6 font-light"
+          className="text-xl md:text-2xl lg:text-3xl text-[var(--color-text-secondary)] mt-4 md:mt-6 font-light"
         >
-          {personalInfo.title} • <span className="text-[#A9927D]">{personalInfo.tagline}</span>
+          {personalInfo.title} • <span className="text-[var(--color-accent)] font-medium">{personalInfo.tagline}</span>
         </motion.p>
 
         {/* CTA Buttons */}
@@ -145,7 +145,7 @@ const Hero = () => {
             href={personalInfo.social.twitter}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-[#A9927D]/20 transition-colors group"
+            className="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-[var(--color-accent)]/20 transition-colors group"
             aria-label="Twitter"
           >
             <svg className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
@@ -181,7 +181,7 @@ const Hero = () => {
           transition={{ delay: 0.8, duration: 0.6 }}
           className="w-full relative h-12 marquee-container"
         >
-          <div className="marquee text-white flex gap-10 font-semibold text-sm md:text-lg">
+          <div className="marquee text-[var(--color-text-primary)] flex gap-10 font-semibold text-sm md:text-lg">
             {/* First group */}
             <div className="texts flex items-center justify-center gap-6 md:gap-10">
               {techStack.concat(techStack).map((tech, idx) => (

@@ -75,10 +75,10 @@ const AboutSection = () => {
     };
 
     return (
-        <section id="about" className="section-padding bg-[#0A0908] relative overflow-hidden">
+        <section id="about" className="section-padding bg-[var(--color-bg-primary)] relative overflow-hidden">
             {/* Background decorative elements */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-[#A9927D]/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#A9927D]/5 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--color-accent)]/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-72 h-72 bg-[var(--color-accent)]/5 rounded-full blur-3xl" />
 
             <motion.div
                 className="max-w-7xl mx-auto relative z-10"
@@ -89,7 +89,7 @@ const AboutSection = () => {
             >
                 {/* Section Header */}
                 <motion.div variants={itemVariants} className="text-center mb-16">
-                    <span className="text-[#A9927D] font-medium tracking-wider uppercase text-sm">
+                    <span className="text-[var(--color-accent)] font-medium tracking-wider uppercase text-sm">
                         Get to know me
                     </span>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 font-[font9]">
@@ -125,18 +125,18 @@ const AboutSection = () => {
                                 animate={{ y: [0, -8, 0] }}
                                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                             >
-                                <span className="text-[#A9927D] font-semibold">Available for hire ✨</span>
+                                <span className="text-[var(--color-accent)] font-semibold">Available for hire ✨</span>
                             </motion.div>
                         </div>
                     </motion.div>
 
                     {/* Bio Content */}
                     <motion.div variants={itemVariants} className="space-y-6">
-                        <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+                        <p className="text-lg md:text-xl text-[var(--color-text-primary)] leading-relaxed">
                             {aboutData.bio}
                         </p>
 
-                        <p className="text-gray-400 leading-relaxed">
+                        <p className="text-[var(--color-text-secondary)] leading-relaxed">
                             When I'm not coding, you'll find me exploring new technologies,
                             contributing to open-source projects, or sharing knowledge with
                             the developer community. I believe in writing clean, maintainable

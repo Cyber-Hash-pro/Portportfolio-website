@@ -18,7 +18,7 @@ const SkillCard = ({ skill, index, isInView }) => {
             className="flex items-center gap-4 p-4 glass rounded-xl card-hover group"
         >
             {/* Icon */}
-            <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-[#A9927D]/20 transition-colors duration-300">
+            <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--color-accent)]/20 transition-colors duration-300">
                 <img
                     src={skill.icon}
                     alt={skill.name}
@@ -30,8 +30,8 @@ const SkillCard = ({ skill, index, isInView }) => {
             {/* Name and Progress */}
             <div className="flex-1 min-w-0">
                 <div className="flex justify-between items-center mb-2">
-                    <span className="font-medium text-gray-200 truncate">{skill.name}</span>
-                    <span className="text-sm text-[#A9927D] font-medium">{skill.level}%</span>
+                    <span className="font-medium text-[var(--color-text-primary)] truncate">{skill.name}</span>
+                    <span className="text-sm text-[var(--color-accent)] font-medium">{skill.level}%</span>
                 </div>
 
                 {/* Progress Bar */}
@@ -95,9 +95,9 @@ const SkillsSection = () => {
     };
 
     return (
-        <section id="skills" className="section-padding bg-[#121314] relative overflow-hidden">
+        <section id="skills" className="section-padding bg-[var(--color-bg-secondary)] relative overflow-hidden">
             {/* Background decoration */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#A9927D]/5 rounded-full blur-3xl" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--color-accent)]/5 rounded-full blur-3xl" />
 
             <motion.div
                 className="max-w-7xl mx-auto relative z-10"
@@ -114,7 +114,7 @@ const SkillsSection = () => {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <span className="text-[#A9927D] font-medium tracking-wider uppercase text-sm">
+                    <span className="text-[var(--color-accent)] font-medium tracking-wider uppercase text-sm">
                         What I Work With
                     </span>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 font-[font9]">

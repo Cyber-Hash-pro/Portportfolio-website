@@ -39,9 +39,9 @@ const ContactSection = () => {
     };
 
     return (
-        <section id="contact" className="section-padding bg-[#121314] relative overflow-hidden">
+        <section id="contact" className="section-padding bg-[var(--color-bg-secondary)] relative overflow-hidden">
             {/* Background decorations */}
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#A9927D]/5 rounded-full blur-3xl" />
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-[var(--color-accent)]/5 rounded-full blur-3xl" />
             <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-emerald-500/5 rounded-full blur-3xl" />
 
             <div className="max-w-6xl mx-auto relative z-10">
@@ -53,7 +53,7 @@ const ContactSection = () => {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <span className="text-[#A9927D] font-medium tracking-wider uppercase text-sm">
+                    <span className="text-[var(--color-accent)] font-medium tracking-wider uppercase text-sm">
                         Get in Touch
                     </span>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 font-[font9]">
@@ -75,10 +75,10 @@ const ContactSection = () => {
                         className="space-y-8"
                     >
                         <div>
-                            <h3 className="text-2xl font-bold text-gray-100 mb-4">
+                            <h3 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4">
                                 Let's talk about everything!
                             </h3>
-                            <p className="text-gray-400">
+                            <p className="text-[var(--color-text-secondary)]">
                                 Don't like forms? Send me an email directly or connect with me
                                 on social media. I typically respond within 24 hours.
                             </p>
